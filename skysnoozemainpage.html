@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkySnooze – The Ultimate Airplane Pillow</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --text: #ffffff;
+      --muted: #b5b5b5;
+      --accent: #6ec1ff;
+      --card: #111111;
+      --border: #222222;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 32px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    nav a:hover { opacity: 1; }
+
+    .hero {
+      padding: 96px 24px;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 32px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform 0.15s ease;
+    }
+
+    .cta:hover { transform: scale(1.05); }
+
+    section {
+      padding: 80px 24px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .card h3 { margin-top: 0; }
+
+    .product {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 24px;
+      background: #1a1a1a;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .price {
+      font-size: 2rem;
+      margin: 16px 0;
+    }
+
+    .buy-btn {
+      padding: 14px 28px;
+      font-size: 1rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #000;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .progress {
+      background: #1a1a1a;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 16px;
+    }
+
+    .progress-bar {
+      height: 16px;
+      width: 32%; /* example progress */
+      background: linear-gradient(90deg, #6ec1ff, #9be2ff);
+    }
+
+    footer {
+      padding: 48px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .product { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">SkySnooze</div>
+    <nav>
+      <a href="#product">Product</a>
+      <a href="#sweepstake">Sweepstake</a>
+      <a href="#buy">Buy</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Sleep Better at 35,000 Feet</h1>
+    <p>SkySnooze is the premium airplane pillow designed for long flights, red-eyes, and travelers who refuse to arrive tired.</p>
+    <a class="cta" href="#buy">Buy SkySnooze</a>
+  </div>
+
+  <section id="product">
+    <div class="grid">
+      <div class="card">
+        <h3>Ergonomic Design</h3>
+        <p>Supports your neck and jaw without forcing your head forward.</p>
+      </div>
+      <div class="card">
+        <h3>Memory Foam Core</h3>
+        <p>Perfect balance of softness and support for flights of any length.</p>
+      </div>
+      <div class="card">
+        <h3>Travel-Ready</h3>
+        <p>Compresses into a compact carry pouch that fits any backpack.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="buy" class="product">
+    <img src="https://dummyimage.com/800x800/1a1a1a/ffffff&text=SkySnooze+Pillow" alt="SkySnooze Pillow" />
+    <div>
+      <h2>SkySnooze Airplane Pillow</h2>
+      <p>One pillow. Better sleep. Automatic entry into our travel sweepstake.</p>
+      <div class="price">$39.99</div>
+      <button class="buy-btn">Add to Cart</button>
+
+      <div class="progress">
+        <div class="progress-bar"></div>
+      </div>
+      <small>3,214 / 10,000 pillows sold</small>
+    </div>
+  </section>
+
+  <section id="sweepstake">
+    <h2>10,000 Pillows = 1 Free Trip ✈️</h2>
+    <p>Once 10,000 SkySnooze pillows are sold, we randomly select one customer to win a fully-paid vacation trip.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Automatic Entry</h3>
+        <p>Every purchase counts as one sweepstake entry.</p>
+      </div>
+      <div class="card">
+        <h3>Any Destination</h3>
+        <p>Winner chooses from select international and domestic destinations.</p>
+      </div>
+      <div class="card">
+        <h3>Transparent Draw</h3>
+        <p>The winner is announced publicly once the goal is reached.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 SkySnooze. Not affiliated with any airline. Sweepstakes terms apply.
+  </footer>
+
+</body>
+</html>
