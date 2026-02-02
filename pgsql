@@ -1,10 +1,10 @@
-skysnooze/
-├─ pages/
+skysnooze
+├─ pages
+│  ├─ _app.js   ✅
 │  ├─ index.js
-│  └─ api/
+│  └─ api
 │     ├─ create-order.js
 │     └─ capture-order.js
-├─ styles/
+├─ styles
 │  └─ globals.css
 ├─ package.json
-└─ next.config.js
