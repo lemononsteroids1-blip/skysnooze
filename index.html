@@ -3,102 +3,246 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SkySnooze – Airplane Pillow</title>
+  <title>SkySnooze – Premium Travel Pillow</title>
 
-  <!-- PayPal Smart Buttons (LIVE: replace YOUR_CLIENT_ID) -->
+  <!-- PayPal Smart Buttons (REPLACE WITH YOUR LIVE CLIENT ID) -->
   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
 
   <style>
+    :root {
+      --bg: #000;
+      --panel: #0f0f0f;
+      --border: #1e1e1e;
+      --text: #ffffff;
+      --muted: #b7b7b7;
+      --accent: #7dd3ff;
+      --success: #4ade80;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      background: #000;
-      color: #fff;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 24px;
       display: flex;
-      justify-content: center;
       align-items: center;
-      min-height: 100vh;
-      text-align: center;
+      justify-content: space-between;
     }
 
-    .card {
-      max-width: 420px;
-      padding: 48px 32px;
-      border-radius: 20px;
-      background: #0e0e0e;
-      box-shadow: 0 0 40px rgba(0,0,0,0.6);
+    .logo {
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 1.3rem;
     }
 
-    h1 {
-      margin-top: 0;
-      font-size: 2.5rem;
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 28px;
+      font-size: 0.95rem;
     }
 
-    p {
-      color: #b5b5b5;
-      line-height: 1.6;
+    nav a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 120px 24px 80px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 520px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(125,211,255,0.15);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      margin-bottom: 18px;
+    }
+
+    .hero-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px;
     }
 
     .price {
-      font-size: 2rem;
-      margin: 24px 0;
+      font-size: 2.2rem;
+      margin: 12px 0 4px;
     }
 
-    .sweep {
-      margin-top: 24px;
-      font-size: 0.9rem;
-      color: #9ad6ff;
+    .stock {
+      color: var(--success);
+      font-size: 0.85rem;
+      margin-bottom: 20px;
     }
 
+    /* SECTIONS */
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 24px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+
+    .feature {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .feature h3 { margin-top: 0; }
+
+    /* PRODUCT DETAIL */
+    .product {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 32px;
+      background: #1a1a1a;
+    }
+
+    /* FOOTER */
     footer {
-      margin-top: 32px;
-      font-size: 0.75rem;
-      color: #777;
+      border-top: 1px solid var(--border);
+      padding: 60px 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .product { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.4rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>SkySnooze</h1>
-    <p>Premium airplane pillow designed to help you sleep better at 35,000 feet.</p>
+<header>
+  <div class="header-inner">
+    <div class="logo">SkySnooze</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#details">Details</a>
+      <a href="#buy">Buy</a>
+    </nav>
+  </div>
+</header>
 
-    <div class="price">$24.99</div>
-
-    <!-- PayPal Button -->
-    <div id="paypal-button-container"></div>
-
-    <div class="sweep">
-      Buy a pillow = 1 entry into our 10,000‑pillow travel sweepstake ✈️
-    </div>
-
-    <footer>
-      © 2026 SkySnooze · Not affiliated with any airline
-    </footer>
+<!-- HERO / BUY CARD -->
+<div class="hero" id="buy">
+  <div>
+    <span class="badge">✈️ Trip Sweepstakes Included</span>
+    <h1>Arrive Rested.<br>Sleep Better in the Sky.</h1>
+    <p>SkySnooze is a premium memory-foam airplane pillow designed for travelers who refuse to land exhausted.</p>
   </div>
 
-  <script>
-    paypal.Buttons({
-      style: {
-        layout: 'vertical',
-        shape: 'pill'
-      },
-      createOrder: function (data, actions) {
-        return actions.order.create({
-          purchase_units: [{
-            amount: { value: '24.99' },
-            payee: { email_address: 'lemononsteroids1@gmail.com' },
-            description: 'SkySnooze Airplane Pillow'
-          }]
-        });
-      },
-      onApprove: function (data, actions) {
-        return actions.order.capture().then(function () {
-          alert('Thank you! Your SkySnooze pillow is on the way ✈️');
-        });
-      }
-    }).render('#paypal-button-container');
-  </script>
+  <div class="hero-card">
+    <h2>SkySnooze Travel Pillow</h2>
+    <div class="price">$24.99</div>
+    <div class="stock">✔ In stock · Ships worldwide</div>
+    <div id="paypal-button-container"></div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-top:16px;">Every purchase = 1 automatic entry into our 10,000 pillow travel sweepstakes.</p>
+  </div>
+</div>
 
-</body>
-</html>
+<!-- FEATURES -->
+<section id="features">
+  <h2>Why Travelers Love SkySnooze</h2>
+  <div class="features">
+    <div class="feature">
+      <h3>Ergonomic Neck Support</h3>
+      <p>Supports your head without forcing it forward, even in economy seats.</p>
+    </div>
+    <div class="feature">
+      <h3>Premium Memory Foam</h3>
+      <p>Soft, breathable foam adapts to your posture and holds its shape.</p>
+    </div>
+    <div class="feature">
+      <h3>Compact & Portable</h3>
+      <p>Compresses into a carry pouch that fits in backpacks and carry-ons.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT DETAILS -->
+<section id="details" class="product">
+  <img src="https://dummyimage.com/900x900/1a1a1a/ffffff&text=SkySnooze+Pillow" alt="SkySnooze Pillow" />
+  <div>
+    <h2>One Pillow. One Entry. One Free Trip.</h2>
+    <p style="color:var(--muted)">When 10,000 SkySnooze pillows are sold, one customer is randomly selected to win a fully-paid travel experience. No forms. No extra steps.</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 SkySnooze · Not affiliated with any airline · Sweepstakes terms apply
+</footer>
+
+<script>
+  paypal.Buttons({
+    style: { layout: 'vertical', shape: 'pill' },
+    createOrder: function (data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: { value: '24.99' },
+          payee: { email_address: 'lemononsteroids1@gmail.com' },
+          description: 'SkySnooze Travel Pillow'
+        }]
+      });
+    },
+    onApprove: function (data, actions) {
+      return actions.order.capture().then(function () {
+        alert('Payment successful! You are entered into the SkySnooze trip sweepstakes ✈️');
+      });
+    }
+  }).render('#paypal-button-container');
+</script>
