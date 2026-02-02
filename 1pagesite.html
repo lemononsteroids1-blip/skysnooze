@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SkySnooze – Sleep Better in the Sky</title>
+
+  <!-- PayPal Smart Buttons (replace YOUR_CLIENT_ID with LIVE ID) -->
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
+
+  <style>
+    :root {
+      --bg: #000;
+      --card: #0f0f0f;
+      --border: #1e1e1e;
+      --text: #fff;
+      --muted: #b0b0b0;
+      --accent: #7dd3ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    .hero {
+      padding: 120px 24px 80px;
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    section {
+      padding: 80px 24px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    .product {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 28px;
+      background: #1a1a1a;
+    }
+
+    .price {
+      font-size: 2.2rem;
+      margin: 20px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(125,211,255,0.15);
+      color: var(--accent);
+      font-size: 0.75rem;
+      margin-bottom: 16px;
+    }
+
+    footer {
+      padding: 60px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 800px) {
+      .hero h2 { font-size: 2.2rem; }
+      .product { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>SkySnooze</h1>
+  <nav>
+    <a href="#product">Product</a>
+    <a href="#sweepstakes">Sweepstakes</a>
+    <a href="#buy">Buy</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <h2>Sleep Better at 35,000 Feet</h2>
+  <p>SkySnooze is a premium airplane pillow built for long flights, red-eyes, and travelers who care about arriving rested.</p>
+</div>
+
+<section id="product" class="grid">
+  <div class="card">
+    <h3>Ergonomic Support</h3>
+    <p>Designed to support your neck and jaw without pushing your head forward.</p>
+  </div>
+  <div class="card">
+    <h3>Memory Foam Core</h3>
+    <p>Soft, breathable memory foam adapts to your posture in any seat.</p>
+  </div>
+  <div class="card">
+    <h3>Carry-On Friendly</h3>
+    <p>Compresses into a compact pouch that fits easily in your bag.</p>
+  </div>
+</section>
+
+<section id="buy" class="product">
+  <img src="https://dummyimage.com/800x800/1a1a1a/ffffff&text=SkySnooze+Pillow" alt="SkySnooze Pillow">
+  <div>
+    <span class="badge">Includes Trip Sweepstakes Entry ✈️</span>
+    <h2>SkySnooze Airplane Pillow</h2>
+    <p>Every SkySnooze purchase automatically enters you into our 10,000-pillow sweepstakes for a free trip.</p>
+    <div class="price">$24.99</div>
+
+    <div id="paypal-button-container"></div>
+  </div>
+</section>
+
+<section id="sweepstakes">
+  <h2>10,000 Pillows. One Free Trip.</h2>
+  <p style="max-width:700px;color:var(--muted)">When we sell 10,000 SkySnooze pillows, one customer is randomly selected to win a fully-paid travel experience. No extra steps. No forms. Just sleep better and fly free.</p>
+</section>
+
+<footer>
+  © 2026 SkySnooze · Not affiliated with any airline · Sweepstakes terms apply
+</footer>
+
+<script>
+  paypal.Buttons({
+    style: { layout: 'vertical', shape: 'pill' },
+    createOrder: function (data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: { value: '24.99' },
+          payee: { email_address: 'lemononsteroids1@gmail.com' },
+          description: 'SkySnooze Airplane Pillow'
+        }]
+      });
+    },
+    onApprove: function (data, actions) {
+      return actions.order.capture().then(function () {
+        alert('Thanks for your purchase! You are entered into the SkySnooze trip sweepstakes ✈️');
+      });
+    }
+  }).render('#paypal-button-container');
+</script>
+
+</body>
+<
