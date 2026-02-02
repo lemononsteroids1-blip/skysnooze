@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>SkySnooze – Premium Travel Pillow</title>
+  <title>SkySnooze — Travel Rest, Redefined</title>
 
   <!-- PayPal Smart Buttons (REPLACE WITH YOUR LIVE CLIENT ID) -->
   <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=USD"></script>
@@ -11,13 +11,12 @@
   <style>
     :root {
       --bg: #000000;
-      --panel: #0c0c0c;
-      --panel-soft: #121212;
-      --border: #1f1f1f;
+      --panel: #060606;
+      --panel-soft: #0b0b0b;
+      --border: #1a1a1a;
       --text: #ffffff;
-      --muted: #b5b5b5;
-      --accent: #7dd3ff;
-      --accent-strong: #38bdf8;
+      --muted: #9b9b9b;
+      --accent: #ffffff;
       --success: #4ade80;
     }
 
@@ -29,9 +28,9 @@
       color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif;
       line-height: 1.55;
+      letter-spacing: -0.01em;
     }
 
-    /* CONTAINER */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -43,151 +42,143 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(0,0,0,0.75);
+      background: rgba(0,0,0,0.9);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
     }
 
     .logo {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.28em;
     }
 
     nav a {
       color: var(--muted);
       text-decoration: none;
       margin-left: 32px;
-      font-size: 0.95rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
     }
 
     nav a:hover { color: var(--text); }
 
     /* HERO */
     .hero {
-      padding: 120px 0 90px;
+      padding: 140px 0 90px;
       text-align: center;
     }
 
-    .hero .badge {
-      display: inline-block;
-      background: rgba(56,189,248,0.15);
-      color: var(--accent);
-      padding: 8px 18px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      margin-bottom: 22px;
-    }
-
     .hero h1 {
-      font-size: 3.4rem;
-      margin: 0 auto 18px;
-      max-width: 760px;
-      line-height: 1.1;
+      font-size: 3.6rem;
+      max-width: 900px;
+      margin: 0 auto 24px;
+      line-height: 1.05;
+      font-weight: 700;
     }
 
     .hero p {
       color: var(--muted);
-      max-width: 620px;
+      max-width: 560px;
       margin: 0 auto 48px;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
 
-    /* BUY CARD */
-    .buy-card {
-      max-width: 420px;
-      margin: 0 auto;
+    .cta-btn {
+      display: inline-block;
+      padding: 18px 52px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      font-size: 0.75rem;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(255,255,255,0.12);
+    }
+
+    /* SHOPIFY-STYLE BUY SECTION */
+    .buy {
+      padding: 110px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       background: linear-gradient(180deg, var(--panel), var(--panel-soft));
-      border: 1px solid var(--border);
-      border-radius: 32px;
-      padding: 36px;
-      box-shadow: 0 40px 120px rgba(0,0,0,0.6);
     }
 
-    .buy-card h2 {
-      margin: 0 0 8px;
-    }
-
-    .price {
-      font-size: 2.6rem;
-      font-weight: 700;
-      margin: 12px 0 6px;
-    }
-
-    .sub {
-      color: var(--success);
-      font-size: 0.9rem;
-      margin-bottom: 20px;
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 90px 0;
-    }
-
-    section h2 {
-      text-align: center;
-      font-size: 2.4rem;
-      margin-bottom: 56px;
-    }
-
-    /* FEATURES */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 36px;
-    }
-
-    .feature {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 36px 28px;
-      text-align: center;
-    }
-
-    .feature h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-    }
-
-    .feature p { color: var(--muted); }
-
-    /* PRODUCT SHOWCASE */
-    .showcase {
+    .buy-layout {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
     }
 
-    .showcase img {
+    .buy-image {
       width: 100%;
-      border-radius: 40px;
-      background: #1a1a1a;
+      border-radius: 36px;
+      background: #111;
     }
 
-    .showcase p { color: var(--muted); font-size: 1.05rem; }
+    .buy-card {
+      max-width: 420px;
+    }
 
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 70px 0;
-      text-align: center;
-      color: var(--muted);
+    .price {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin: 10px 0 6px;
+    }
+
+    .sub {
+      color: var(--success);
       font-size: 0.85rem;
+      margin-bottom: 24px;
     }
+
+    .trust {
+      margin-top: 20px;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* FEATURES */
+    section {
+      padding: 120px 0;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 72px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 48px;
+      text-align: center;
+    }
+
+    .feature h3 { margin-bottom: 10px; }
+    .feature p { color: var(--muted); }
+
+    .feature small { color: var(--muted); display: block; margin-top: 8px; }
 
     @media (max-width: 900px) {
-      .hero h1 { font-size: 2.5rem; }
-      .showcase { grid-template-columns: 1fr; text-align: center; }
+      .hero h1 { font-size: 2.4rem; }
+      .buy-layout { grid-template-columns: 1fr; text-align: center; }
+      .buy-card { margin: 0 auto; }
     }
   </style>
 </head>
@@ -197,65 +188,61 @@
   <div class="container header-inner">
     <div class="logo">SKYSNOOZE</div>
     <nav>
-      <a href="#features">Why It’s Better</a>
-      <a href="#details">The Pillow</a>
-      <a href="#buy">Buy</a>
+      <a href="#buy">BUY</a>
+      <a href="#features">FEATURES</a>
     </nav>
   </div>
 </header>
 
 <!-- HERO -->
-<section class="hero" id="buy">
+<section class="hero">
   <div class="container">
-    <span class="badge">✈️ Every Pillow = 1 Trip Sweepstakes Entry</span>
-    <h1>The Travel Pillow People Actually Sleep In</h1>
-    <p>SkySnooze is engineered for real rest at 30,000 feet. Premium memory foam, ergonomic support, and a chance to win a fully-paid trip.</p>
+    <h1>Sleep Like You’re Not Flying</h1>
+    <p>Minimal. Supportive. Engineered for real rest at 30,000 feet.</p>
+    <a href="#buy" class="cta-btn">BUY NOW</a>
+  </div>
+</section>
+
+<!-- BUY (RIGHT UNDER HERO) -->
+<section class="buy" id="buy">
+  <div class="container buy-layout">
+    <img src="https://dummyimage.com/900x900/111/fff&text=SkySnooze" class="buy-image" alt="SkySnooze Pillow" />
 
     <div class="buy-card">
       <h2>SkySnooze Travel Pillow</h2>
+      <p style="color:var(--muted);">Ergonomic memory-foam travel pillow designed to keep your head aligned and your body relaxed during flights.</p>
       <div class="price">$24.99</div>
-      <div class="sub">✔ In stock · Free sweepstakes entry</div>
+      <div class="sub">✔ In stock · Free shipping</div>
       <div id="paypal-button-container"></div>
-      <p style="font-size:0.85rem;color:var(--muted);margin-top:18px;">Automatically entered when 10,000 pillows are sold.</p>
+      <div class="trust">Secure checkout · PayPal Buyer Protection</div>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- FEATURES + SWEEPSTAKES -->
 <section id="features">
   <div class="container">
-    <h2>Designed for Better Flights</h2>
+    <h2>Designed for Travel. Built to Win.</h2>
     <div class="features">
-      <div class="feature">
-        <h3>No Head Drop</h3>
-        <p>Keeps your neck aligned so you don’t wake up sore or tilted forward.</p>
-      </div>
+      
       <div class="feature">
         <h3>Premium Memory Foam</h3>
-        <p>Dense, breathable foam that adapts to you — not the seat.</p>
+        <p>High-density foam that adapts to your posture and holds its shape.</p>
       </div>
       <div class="feature">
-        <h3>Carry-On Ready</h3>
-        <p>Compresses down and clips to your backpack or luggage.</p>
+        <h3>Compact & Lightweight</h3>
+        <p>Compresses easily and clips onto backpacks or carry-ons.</p>
       </div>
+      
+      <div class="feature">
+        <h3>Trip Sweepstakes Entry</h3>
+        <p>Every pillow purchased automatically enters you.</p>
+        <small>When 10,000 pillows are sold, one customer wins a fully-paid trip.</small>
+      </div>
+      
     </div>
   </div>
 </section>
-
-<!-- DETAILS -->
-<section id="details">
-  <div class="container showcase">
-    <img src="https://dummyimage.com/900x900/1a1a1a/ffffff&text=SkySnooze+Pillow" alt="SkySnooze Pillow" />
-    <div>
-      <h2>One Pillow. One Entry. One Free Trip.</h2>
-      <p>Once 10,000 SkySnooze pillows are sold, one customer is randomly selected to win a fully-paid travel experience. No signups. No gimmicks. Just buy and you’re in.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  © 2026 SkySnooze · Secure checkout via PayPal · Sweepstakes terms apply
-</footer>
 
 <script>
   paypal.Buttons({
@@ -271,7 +258,7 @@
     },
     onApprove: function (data, actions) {
       return actions.order.capture().then(function () {
-        alert('Payment successful! You are officially entered into the SkySnooze trip sweepstakes ✈️');
+        alert('Payment successful. You are entered into the SkySnooze travel sweepstakes ✈️');
       });
     }
   }).render('#paypal-button-container');
