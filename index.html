@@ -188,11 +188,23 @@
   <div class="container header-inner">
     <div class="logo">SKYSNOOZE</div>
     <nav>
+      <a href="#buy">SHOP</a>
+      <a href="#features">FEATURES</a>
+      <a href="javascript:void(0)" onclick="toggleCart()">CART</a>
       <a href="#buy">BUY</a>
       <a href="#features">FEATURES</a>
     </nav>
   </div>
 </header>
+
+<!-- CART DRAWER -->
+<div id="cart" style="position:fixed;top:0;right:-420px;width:400px;height:100%;background:#060606;border-left:1px solid #1a1a1a;z-index:100;transition:right .3s ease;padding:24px;">
+  <h3 style="margin-top:0;">Your Cart</h3>
+  <p id="cart-item">SkySnooze Travel Pillow × 1</p>
+  <p style="font-weight:600;">Total: $24.99</p>
+  <div id="paypal-button-container-cart"></div>
+  <button onclick="toggleCart()" style="margin-top:20px;background:none;border:1px solid #333;color:#fff;padding:10px 16px;border-radius:999px;cursor:pointer;">Close</button>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -213,7 +225,7 @@
       <p style="color:var(--muted);">Ergonomic memory-foam travel pillow designed to keep your head aligned and your body relaxed during flights.</p>
       <div class="price">$24.99</div>
       <div class="sub">✔ In stock · Free shipping</div>
-      <div id="paypal-button-container"></div>
+      <button onclick="toggleCart()" style="width:100%;padding:16px 0;border-radius:999px;background:#fff;color:#000;font-weight:600;border:none;cursor:pointer;letter-spacing:.15em;font-size:.75rem;">ADD TO CART</button>
       <div class="trust">Secure checkout · PayPal Buyer Protection</div>
     </div>
   </div>
@@ -243,6 +255,13 @@
     </div>
   </div>
 </section>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid var(--border);padding:48px 0;text-align:center;">
+  <div class="container">
+    <p style="color:var(--muted);font-size:0.75rem;letter-spacing:0.18em;">BY NOLAN TURNER</p>
+  </div>
+</footer>
 
 <script>
   paypal.Buttons({
